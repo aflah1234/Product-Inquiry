@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';  // Importing the styles for the header
+import { toast } from 'react-toastify';
 
 const handleLogout = (() => {
   localStorage.removeItem("token")
+  toast.success("logout successfully")
   window.location.reload()
 })
 const UserHeader = () => {

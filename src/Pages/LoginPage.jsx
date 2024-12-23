@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 import "../styles/loginpage.css"
+import { toast } from 'react-toastify';
 function Login() {
 
     const {register,handleSubmit,formState:{errors}}=useForm();
@@ -15,10 +16,11 @@ function Login() {
             const token = response.data.token;
             console.log(token, "token")
             localStorage.setItem('token', token)
-            alert("Login successful")
+            toast.success("Login successful")
             navigate("/product")
         })
         .catch(error=>console.log(error))
+        toast.error("Try Again")
     }
 
   return (

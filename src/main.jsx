@@ -9,6 +9,7 @@ import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPages';
 import InquiryPage from './Pages/InquiryPage';
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
@@ -52,5 +53,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
+    <ToastContainer position='top-center' />
   </React.StrictMode>
 )
