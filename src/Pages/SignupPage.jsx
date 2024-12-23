@@ -11,7 +11,7 @@ const SignupPage = () => {
 
     const checkLogin = (data)=>{
         console.log("Form data",data)
-        axios.post('http://localhost:3001/users/signup',data)
+        axios.post('https://productinquary-be.onrender.com/users/signup',data)
         .then(response=>{
             console.log(response.data)
             alert("Login successful")

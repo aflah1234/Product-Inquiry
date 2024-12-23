@@ -11,7 +11,7 @@ function Login() {
 
     const checkLogin = (data)=>{
         // console.log("Form data",data)
-        axios.post('http://localhost:3001/users/login',data)
+        axios.post('https://productinquary-be.onrender.com/users/login',data)
         .then(response=>{
             const token = response.data.token;
             console.log(token, "token")
