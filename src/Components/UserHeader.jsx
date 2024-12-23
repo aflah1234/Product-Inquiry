@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';  // Importing the styles for the header
 
-const Header = () => {
+const handleLogout = (() => {
+  localStorage.removeItem("token")
+  window.location.reload()
+})
+const UserHeader = () => {
   return (
     <header className="header">
       <div className="logo">
@@ -10,7 +14,7 @@ const Header = () => {
       </div>
       <nav>
         <ul className="nav-links">
-          {/* <li>
+          <li>
             <Link to="/">Home</Link>
           </li>
           <li>
@@ -18,9 +22,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/product">Products</Link>
-          </li> */}
-          <li>
-            <Link to="/login">Login</Link>
+          </li>
+          <li className='click' onClick={handleLogout}>
+            Logout
           </li>
           
         </ul>
@@ -29,4 +33,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default UserHeader;

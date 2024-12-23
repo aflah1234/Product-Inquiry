@@ -1,10 +1,56 @@
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import App from './App';
+import { createBrowserRouter, BrowserRouter as Router, RouterProvider } from 'react-router-dom';
+import HomeLayout from './Components/layout/HomeLayout';
+import Login from './Pages/loginPage';
+import SignupPage from './Pages/SignupPage';
+import EasyMethod from './Components/protected-routes/EasyMethod';
+import UserLayout from './Components/layout/UserLayout';
+import HomePage from './Pages/HomePage';
+import ProductPage from './Pages/ProductPages';
+import InquiryPage from './Pages/InquiryPage';
+import React from 'react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Router>
-    <App />
-  </Router>
-);
+const router = createBrowserRouter([
+  {
+    element: (
+      <HomeLayout/>
+    ),
+    children: [
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path:"/signup",
+        element: <SignupPage/>
+      }
+    ]
+  },
+  {
+    element : (
+      <EasyMethod>
+        <UserLayout/>
+      </EasyMethod>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <HomePage/>
+      },
+      {
+        path: "/product",
+        element: <ProductPage/>
+      },
+      {
+        path: "/inquiry",
+        element: <InquiryPage/>
+      }
+    ]
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router}/>
+  </React.StrictMode>
+)
