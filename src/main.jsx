@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, BrowserRouter as Router, RouterProvider } from 'react-router-dom';
 import HomeLayout from './Components/layout/HomeLayout';
-import Login from './Pages/loginPage';
+import Login from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
 import EasyMethod from './Components/protected-routes/EasyMethod';
 import UserLayout from './Components/layout/UserLayout';
