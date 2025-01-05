@@ -8,7 +8,7 @@ import "../styles/Signup.css"
 const SignupPage = () => {
     const {register,handleSubmit,formState:{errors}}=useForm();
     const navigate = useNavigate();
-
+    
     const checkLogin = (data)=>{
         console.log("Form data",data)
         axios.post('https://productinquary-be.onrender.com/users/signup',data)
